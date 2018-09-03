@@ -1,4 +1,4 @@
-public class Outils{
+public class Mean{
 
 	public static void main(String[] args){
 		int[] tab = new int[args.length];
@@ -8,10 +8,10 @@ public class Outils{
 		for (int note : tab )
 			System.out.print(note+" ");
 		System.out.println();
-		System.out.println(ConsoleColors.YELLOW+"Moyenne : "+ConsoleColors.RESET+  moyenne(tab));
+		System.out.println(ConsoleColors.YELLOW+"Moyenne : "+ConsoleColors.RESET+  mean(tab));
 	}
 
-	public static int moyenne(int[] tab){
+	public static int mean(int[] tab){
 		int result = 0;
 		for (int note : tab )
 			result += note;
