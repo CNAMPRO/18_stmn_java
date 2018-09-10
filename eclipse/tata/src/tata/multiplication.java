@@ -1,7 +1,7 @@
 package tata;
 
 public class multiplication {
-	static public void main(String argv[]){
+	static public void main(String argv[]) throws Exception{
 		System.out.println("Hello func matrice");
 		double[][] m1= {{1,2},{3,4}}; 		
 		double[][] m2= {{1,1},{1,1}}; 
@@ -16,7 +16,11 @@ public class multiplication {
 		afficheM(result);
 	}
 	
-	public static double[][] scalaire(double[][] a ,double[][] b){
+	public static double[][] scalaire(double[][] a ,double[][] b) throws Exception{
+		// matrice à 0 
+		if(a == null || b== null) {
+			throw new Exception("null");
+		}
 		double[][] produit;
 		int l1=a.length;
 		int l2=b.length;
