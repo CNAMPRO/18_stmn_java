@@ -30,9 +30,16 @@ class TestFifo {
 			f.push(i);
 		}
 		
+		int[] expected = new int[100];
 		for (int i=0; i<100;++i) {
-			System.out.println(f.pop());
+			expected[i] = i+1;
 		}
+		int[] buffer = new int[100];
+		int index=0;
+		for (int i=0; i<100;++i) {
+			buffer[index++] = f.pop();
+		}
+		assertArrayEquals(expected, buffer);
 
 	}
 
