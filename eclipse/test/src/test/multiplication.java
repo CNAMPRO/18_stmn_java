@@ -3,8 +3,8 @@ package test;
 public class multiplication {
 	static public void main(String argv[]){
 		System.out.println("Hello func matrice");
-		int m1[][]= {{1,2},{3,4}}; 		
-		int m2[][]= {{1,1},{1,1}}; 
+		double[][] m1= {{1,2},{3,4}}; 		
+		double[][] m2= {{1,1},{1,1}}; 
 		System.out.println("M1");
 		afficheM(m1);
 		System.out.print("\n");
@@ -12,18 +12,18 @@ public class multiplication {
 		afficheM(m2);
 		System.out.print("\n");
 		System.out.println("Multiplication");
-		int[][] result= scalaire(m1,m2);
+		double[][] result= scalaire(m1,m2);
 		afficheM(result);
 	}
 	
-	public static int[][] scalaire(int[][] matrice1 ,int[][] matrice2){
-		int[][] produit;
-		int l1=matrice1.length;
-		int l2=matrice2.length;
-		int c1=matrice1[0].length;
-		int c2=matrice2[0].length;
+	public static double[][] scalaire(double[][] a ,double[][] b){
+		double[][] produit;
+		int l1=a.length;
+		int l2=b.length;
+		int c1=a[0].length;
+		int c2=b[0].length;
 		int lr,cr;
-		int multi;
+		double multi;
 		//matrice1.length = ligne
 		//matrice1[x].length = colone
 		// n = l2 et c1
@@ -31,14 +31,14 @@ public class multiplication {
 		// m = l1
 		lr=l2;
 		cr=c2;
-		produit= new int[lr][cr];
+		produit= new double[lr][cr];
 		lr=0; // compteur ligne
 		for(int m=0;m<l1;m++) {
 			cr=0; //compteur colone
 			for (int o=0;o<c2;o++) {
 				multi=0;
 				for (int n=0;n<l2;n++) {
-					multi=multi+matrice1[m][n]*matrice2[n][o];
+					multi=multi+a[m][n]*b[n][o];
 				}
 				produit[lr][cr] = multi;
 				cr++;
@@ -48,7 +48,7 @@ public class multiplication {
 		return produit;	
 	}
 	
-	public static void afficheM(int[][] matrice) {
+	public static void afficheM(double[][] matrice) {
 		int l = matrice.length;
 		for(int i = 0 ; i < l; i++ ){
 			for(int j = 0; j< matrice[i].length; j++){	 
