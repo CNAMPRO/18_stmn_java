@@ -19,7 +19,7 @@ public static double[][] multiplicar(double A[][],double B[][]){
      } */
     for(i=0;i<A.length;i++)
         for(j=0;j< B[0].length;j++)
-            for (k=0;k<B.length;k++)
+            for (k=0;k<A[0].length;k++)
                   C[i][j]+=(A[i][k]*B[k][j]);
     return C;
 }
