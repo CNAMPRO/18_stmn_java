@@ -11,7 +11,6 @@ class TestFifo {
 		f.size = 0;
 		
 		for (int i=1; i<=1000;++i) {
-			f.size = 5;
 			Fifo.push(f, i);
 		}
 		
