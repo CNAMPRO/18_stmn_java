@@ -8,10 +8,10 @@ public class Mean{
 		for (int note : tab )
 			System.out.print(note+" ");
 		System.out.println();
-		System.out.println(ConsoleColors.YELLOW+"Moyenne : "+ConsoleColors.RESET+  moyenne(tab));
+		System.out.println(ConsoleColors.YELLOW+"Moyenne : "+ConsoleColors.RESET+  mean(tab));
 	}
 
-	public static int moyenne(int[] tab){
+	public static int mean(int[] tab){
 		int result = 0;
 		for (int note : tab )
 			result += note;
