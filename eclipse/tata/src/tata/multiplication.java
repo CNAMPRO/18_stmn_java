@@ -16,11 +16,9 @@ public class multiplication {
 		afficheM(result);
 	}
 	
-	public static double[][] scalaire(double[][] a ,double[][] b) throws Exception{
+	public static double[][] scalaire(double[][] a ,double[][] b){
 		// matrice à 0 
-		if(a == null || b== null) {
-			throw new Exception("null");
-		}
+		
 		double[][] produit;
 		int l1=a.length;
 		int l2=b.length;
