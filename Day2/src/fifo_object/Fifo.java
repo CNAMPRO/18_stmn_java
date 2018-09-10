@@ -23,4 +23,8 @@ public class Fifo {
 		elements[size] = value;
 		size = size + 1;
 	}
+	
+	public int getElement(int i) {
+		return elements[i];
+	}
 }
