@@ -1,3 +1,3 @@
-# Chemin important 
+# README
 Mon répertoire travail: 
-18_stmn_java/eclipse/tata/src/tata/
+18_stmn_java/eclipse/*
