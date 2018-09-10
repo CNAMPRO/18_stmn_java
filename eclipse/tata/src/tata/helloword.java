@@ -1,4 +1,4 @@
-package test;
+package tata;
 
 public class helloword {
 	static public void main(String argv[]) {

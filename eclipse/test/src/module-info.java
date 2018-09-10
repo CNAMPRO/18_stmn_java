@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author quent
- *
- */
-module test {
-}
