@@ -10,7 +10,7 @@ class TestFifo {
 		f.elements = new int[100];
 		f.size = 0;
 		
-		for (int i=1; i<=1000;++i) {
+		for (int i=1; i<=100;++i) {
 			Fifo.push(f, i);
 		}
 		
