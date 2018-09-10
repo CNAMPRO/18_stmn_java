@@ -21,13 +21,26 @@ public class fifo {
 	
 	
 	static public int[] defile(int[] list) {
-		if(list ==null ) {
-			return list;
-		} else {
-			int[] newlist= {};			
-			
-			return newlist;
+		int[] newlist = {};
+		if(list == null ) {
+			System.out.println("pas de valeur à defiler");
+		} else {	
+			int val;
+			int tailleF=list.length;
+			val = list[list.length-1];
+			System.out.println("valeur défile");
+			 System.out.println(val);
+			if(list.length-1==0) {
+				return newlist;
+			} else {
+				int newtaille=tailleF-1;
+				newlist = new int[newtaille];
+				for(int i=0;i<tailleF;i++) {
+					newlist[i]=list[i];
+				}
+			}
 		}
+		return newlist;
 	}
 	
 	// void afficheF(int[] list) {
