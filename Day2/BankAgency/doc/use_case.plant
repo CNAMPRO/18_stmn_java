@@ -1,0 +1,18 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor user
+actor admin
+
+rectangle system {
+  user --> (deposit money)
+  user --> (draw money)
+  user --> (consult balance)
+  user <|- admin
+  admin --> (create account)
+  admin --> (close account)
+  (draw money) <|-- (transfer money)
+}
+
+@enduml
