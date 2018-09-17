@@ -1,25 +1,42 @@
 
-public class Fifo {
-	int[] elements;
-	int capacity;
-	int size;
-	 
-	public static void init(Fifo f, int capacity) {
-		f.elements = new int[capacity];
-		f.capacity = capacity;
-	}
+public class FIFO {
+	public static void main(String[] args){
+		int[] tab = new int[50];	
+		
+		int nbElement =0;
+		enfile(tab,1111,nbElement);	
+		nbElement++;
+		enfile(tab,8,nbElement);
+		nbElement++;
+		enfile(tab,3,nbElement);	
+		nbElement++;
+		enfile(tab,2,nbElement);	
+		nbElement++;
 	
-	public static int pop(Fifo f) {
-		int head = f.elements[0];
-		for (int i=1;i<f.size; i++) {
-			f.elements[i-1] = f.elements[i];
+	
+
+		
+		for(int i =0; i<nbElement; i++ ) {
+			System.out.println(defile(tab,nbElement));			
 		}
-		f.size = f.size -1;
-		return head;
+		
+	
+	
+		
 	}
 	
-	public static void push(Fifo f, int value) {
-		f.elements[f.size] = value;
-		f.size = f.size + 1;
+	public static void enfile(int[] tab, int valeur, int taille ) {	
+	
+		tab[taille] =valeur; 			
 	}
+	
+	public static int defile(int[] liste,int taille) {
+		int valeur = liste[0];
+		for(int i =1; i<taille; i++ ) {
+			liste[i-1] = liste[i];
+		}
+		return valeur;
+	}
+	
+
 }
