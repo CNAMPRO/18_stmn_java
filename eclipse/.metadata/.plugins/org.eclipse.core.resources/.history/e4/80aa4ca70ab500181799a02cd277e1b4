@@ -1,0 +1,6 @@
+package banktest;
+
+public class system {
+	int valeur;
+	int compte; //num compte 
+}

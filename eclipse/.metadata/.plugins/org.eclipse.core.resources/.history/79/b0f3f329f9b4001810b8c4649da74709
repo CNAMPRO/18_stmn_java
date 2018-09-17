@@ -1,0 +1,10 @@
+
+public class promo {
+	public static void main(String[] argv) {
+	String eleve;
+	String prof;
+	String cour;
+	String salle;
+	}
+	private void eleve
+}

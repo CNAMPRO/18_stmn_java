@@ -1,0 +1,7 @@
+
+public class VersionObject {
+	int version; 
+	int id;
+	
+}
+

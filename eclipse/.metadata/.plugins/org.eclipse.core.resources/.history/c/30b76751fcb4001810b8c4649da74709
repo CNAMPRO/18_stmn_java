@@ -1,0 +1,13 @@
+
+public class promo {
+
+	String eleve;
+	
+	String prof;
+	String cour;
+	String salle;
+	public promo() {
+		System.out.println("Création promo");
+		nomPrmo="STMN 2018";
+	}
+}

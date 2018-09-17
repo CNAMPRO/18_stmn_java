@@ -1,0 +1,7 @@
+
+public class Container {
+	VersionObject cont ;
+	public void add(new VersionObject) {
+		
+	}
+	}
