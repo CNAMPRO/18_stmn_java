@@ -3,7 +3,7 @@ public class Fifo {
 	int[] elements;
 	int capacity;
 	int size;
-	
+	 
 	public static void init(Fifo f, int capacity) {
 		f.elements = new int[capacity];
 		f.capacity = capacity;
