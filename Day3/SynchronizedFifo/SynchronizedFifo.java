@@ -22,6 +22,16 @@ public class SynchronizedFifo {
 		}
 	}
 	
+	public  int popSimple() throws InterruptedException {
+			int head = elements[0];
+			for (int i=1;i<size; i++) {
+				elements[i-1] = elements[i];
+			}
+			size = size -1;
+			return head;
+
+	}
+	
 	public synchronized void push(int value) {
 		synchronized (elements) {
 			elements[size] = value;
