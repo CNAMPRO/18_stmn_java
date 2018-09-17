@@ -9,9 +9,10 @@ public class Fifo {
 		size = 0;
 	}
 	
-	public int pop()
+	synchronized public int pop()
 	{		
-		int head = elements[0];
+		//while(size == 0)
+			int head = elements[0];
 		
 		for(int i = 1; i < size;i++)
 			elements[i-1] = elements[i];
@@ -19,7 +20,7 @@ public class Fifo {
 		return head;
 	}
 	
-	public void push(int value)
+	synchronized public void push(int value)
 	{
 		elements[size] = value;
 		size++;
