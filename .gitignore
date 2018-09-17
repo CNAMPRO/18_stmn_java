@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 /.metadata/
 /.recommenders/
 
 eclipse/.metadata
+=======
+.metadata
+*.png
+>>>>>>> origin/teacher
