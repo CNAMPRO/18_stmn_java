@@ -3,6 +3,10 @@ public class fifo {
 	int [] elements;
 	int capacity;
 	int size;
+}
+
+
+
 	
 	public static int enfile (int tab[], int val) {
 		if(tab == null) {
@@ -23,4 +27,6 @@ public class fifo {
 	}
 	}
 }
+
+
 
