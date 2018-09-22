@@ -7,6 +7,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.*;
+import java.util.Hashtable;
 
 public class Swing extends JFrame {
 
@@ -99,6 +100,10 @@ public Swing() {
       btnEgal.addActionListener(new java.awt.event.ActionListener() {
           public void actionPerformed(java.awt.event.ActionEvent e) {
         	  int result = 0;
+        	  String[] list = inputCalcul.getText().split("\\+");
+        	  for (String nombre : list) {
+        		  result += Integer.parseInt(nombre);	
+        	  }
         	  inputCalcul.setText("="+result);
           }
       });
