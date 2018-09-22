@@ -1,5 +1,5 @@
 #!/bin/bash
-list=("Update calculatrice", "Update Calculatrice UI")
+list=("Copie de la calculatrice de David")
 for i in {23..24}
 do
 	touch temp$i.txt
