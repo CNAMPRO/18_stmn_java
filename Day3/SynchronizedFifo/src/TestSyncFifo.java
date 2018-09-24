@@ -8,27 +8,17 @@ class TestSyncFifo {
 	public final void test() {
 		final Fifo l = new Fifo(5000);
 
-		Thread t1 =new Thread(new Runnable() {
+		Runnable r = new Runnable() {
 
 			@Override
 			public void run() {
 				System.out.println(l.pop());
 			}
-		});
-		Thread t2 =new Thread(new Runnable() {
-
-			@Override
-			public void run() {
-				System.out.println(l.pop());
-			}
-		});
-		Thread t3 =new Thread(new Runnable() {
-
-			@Override
-			public void run() {
-				System.out.println(l.pop());
-			}
-		});
+		};
+		
+		Thread t1 =new Thread(r);
+		Thread t2 =new Thread(r);
+		Thread t3 =new Thread(r);
 		
 		Thread u =new Thread(new Runnable() {
 
