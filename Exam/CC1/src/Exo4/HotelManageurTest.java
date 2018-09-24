@@ -13,52 +13,54 @@ public class HotelManageurTest {
 	
 	@Test
 	public final void testUpdate() {
-		HotelManageurADMIN mgr = new HotelManageurADMIN();
+		
+		
+		HotelManageurADMIN AdministrateurForReservation = new HotelManageurADMIN();
 		Calendar c = Calendar.getInstance();
-		c.set(2017, 10, 6);
+		c.set(2018, 9, 24);
 		
-		mgr.CreeNewReservation(new HotelManageur("JPC", "V1.021", "Java course", c.getTime()));
-		mgr.CreeNewReservation(new HotelManageur("LSD", "V1.021", "Exam1", c.getTime()));
+		AdministrateurForReservation.CreeNewReservation(new HotelManageur("tpp", "V69", "AfondLaFOrmeDECATHLON", c.getTime()));
+		AdministrateurForReservation.CreeNewReservation(new HotelManageur("JPPDELIPP", "V69", "Exam1", c.getTime()));
 		
-		ArrayList<HotelManageur> b = mgr.CheckByDate(c.getTime());
+		ArrayList<HotelManageur> b = AdministrateurForReservation.CheckByDate(c.getTime());
 		assertEquals("Exam1", b.get(0).title);
-		assertEquals("LSD", b.get(0).Touriste);
+		assertEquals("JPPDELIPP", b.get(0).Touriste);
 	}
 	@Test
 	public final void testViewByRoom() {
-		HotelManageurADMIN mgr = new HotelManageurADMIN();
+		HotelManageurADMIN AdministrateurForReservation = new HotelManageurADMIN();
 		Calendar c = Calendar.getInstance();
-		c.set(2017, 10, 6);
+		c.set(2018, 9, 24);
 		
-		mgr.CreeNewReservation(new HotelManageur("JPC", "V1.021", "Java course", c.getTime()));
-		c.set(2017, 10, 13);
-		mgr.CreeNewReservation(new HotelManageur("JPC", "V1.021", "Java course", c.getTime()));
+		AdministrateurForReservation.CreeNewReservation(new HotelManageur("strongo", "V69", "AfondLaFOrmeDECATHLON", c.getTime()));
+		c.set(2018, 9, 13);
+		AdministrateurForReservation.CreeNewReservation(new HotelManageur("strongo", "V69", "AfondLaFOrmeDECATHLON", c.getTime()));
 		
 		
-		ArrayList<HotelManageur> b = mgr.CheckByChambre("V1.021");
+		ArrayList<HotelManageur> b = AdministrateurForReservation.CheckByChambre("V69");
 		assertEquals(2, b.size());
 	}
 	@Test
 	public final void testAdd() {
-		HotelManageurADMIN mgr = new HotelManageurADMIN();
+		HotelManageurADMIN AdministrateurForReservation = new HotelManageurADMIN();
 		Calendar c = Calendar.getInstance();
-		c.set(2017, 10, 6);
+		c.set(2018, 9, 24);
 		
-		mgr.CreeNewReservation(new HotelManageur("JPC", "V1.021", "Java course", c.getTime()));
+		AdministrateurForReservation.CreeNewReservation(new HotelManageur("Polo", "V250km", "PasPLUSviteQueAfond", c.getTime()));
 		
-		assertEquals(new HotelManageur("JPC", "V1.021", "Java course", c.getTime()), mgr.CheckByDate(c.getTime()).get(0));
+		assertEquals(new HotelManageur("Polo", "V250km", "PasPLUSviteQueAfond", c.getTime()), AdministrateurForReservation.CheckByDate(c.getTime()).get(0));
 	}
 	@Test
 	public final void testDelete() {
-		HotelManageurADMIN mgr = new HotelManageurADMIN();
+		HotelManageurADMIN AdministrateurForReservation = new HotelManageurADMIN();
 		Calendar c = Calendar.getInstance();
-		c.set(2017, 10, 6);
+		c.set(2018, 9, 24);
 		
-		mgr.CreeNewReservation(new HotelManageur("JPC", "V1.021", "Java course", c.getTime()));
+		AdministrateurForReservation.CreeNewReservation(new HotelManageur("strongo", "V69", "AfondLaFOrmeDECATHLON", c.getTime()));
 		
-		mgr.SupprimerReservation(new HotelManageur("", "V1.021", "", c.getTime()));
+		AdministrateurForReservation.SupprimerReservation(new HotelManageur("", "V69", "", c.getTime()));
 		
-		ArrayList<HotelManageur> b = mgr.CheckByDate(c.getTime());
+		ArrayList<HotelManageur> b = AdministrateurForReservation.CheckByDate(c.getTime());
 		assertTrue(b.isEmpty());
 	}
 	

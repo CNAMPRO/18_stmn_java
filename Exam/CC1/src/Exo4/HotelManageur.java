@@ -36,12 +36,5 @@ public class HotelManageur {
 			// Update only if update is deemed equal to current object
 			return;
 		}
-	}
-
-	@Override
-	public String toString() {
-		return "HotelManageur [Touriste=" + Touriste + ", Chambre=" + Chambre + ", title=" + title + ", date=" + date + "]";
-	}
-	
-	
+	}	
 }
