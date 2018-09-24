@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author Clément
+ *
+ */
+module VersionnedObject {
+}

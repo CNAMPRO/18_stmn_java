@@ -1,0 +1,22 @@
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class TestMatrix {
+
+	void TestMatrix() {
+		double[][] a = {
+				{1,2},
+				{0,3}
+		};
+		double[][] b = {
+				{1,2,3},
+				{4,5,6}
+		};
+		double[][] c = Multiply.multiplicar(a, b);
+		double[][] expectedC = {{9,12,15},{12,15,18}};
+		
+		assertArrayEquals(c, expectedC);
+	}
+
+}
