@@ -58,7 +58,8 @@ public class Grid implements Observer {
 		// GESTION DECLENCHEMENT EN CHAINE
 		if(nbBomb == 0) {
 			for(Cell oneCell : cells) {
-				oneCell.trigger();
+				if(c != oneCell)
+					oneCell.trigger();
 			}
 		}
 	}
