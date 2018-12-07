@@ -25,6 +25,7 @@ public class CellWidget extends JButton implements Observer {
 
 	private static final Dimension PREFERED_SIZE = new Dimension(24, 24);
 	private static ImageIcon MINE;
+	private static ImageIcon FLAG;
 
 	private final Cell model;
 
@@ -42,11 +43,16 @@ public class CellWidget extends JButton implements Observer {
 				if (e.getButton() == MouseEvent.BUTTON1) {
 					model.trigger();
 				} else if (e.getButton() == MouseEvent.BUTTON3) {
-					// TODO: Implement ASAP
+					if(getIcon() != FLAG) {
+                        setIcon(FLAG);
+                    }else {
+                        setIcon(null);
+                    }
 				}
 			}
 		});
 	}
+
 
 	private void stateChanged(boolean isBomb) {
 		setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
@@ -62,7 +68,7 @@ public class CellWidget extends JButton implements Observer {
 				setUI(new MetalButtonUI() {
 					@Override
 					protected Color getDisabledTextColor() {
-						return Color.orange;
+						return Constants.COLOR_MAP.get(model.nbOfNeiboringBomb);
 					}
 				});
 			}
@@ -77,9 +83,11 @@ public class CellWidget extends JButton implements Observer {
 	static {
 		try {
 			BufferedImage buffImg = ImageIO.read(Util.class.getClassLoader().getResource("exercice3/mine.png"));
-			MINE = new ImageIcon(
+						MINE = new ImageIcon(
 					buffImg.getScaledInstance(PREFERED_SIZE.width, PREFERED_SIZE.height, Image.SCALE_SMOOTH));
 			buffImg = ImageIO.read(Util.class.getClassLoader().getResource("exercice3/flag.jpg"));
+			FLAG = new ImageIcon(
+					buffImg.getScaledInstance(PREFERED_SIZE.width, PREFERED_SIZE.height, Image.SCALE_SMOOTH));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
