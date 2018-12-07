@@ -9,11 +9,11 @@ public class Grid implements Observer {
 	public final int nbRows;
 	public final int nbColumns;
 	public final Cell[][] cells;
-	
+
 	public Grid(int nbRows, int nbColumns) {
 		this.nbRows = nbRows;
 		this.nbColumns = nbColumns;
-		
+
 		cells = new Cell[nbRows][nbColumns];
 		for (int i=0; i<nbRows; ++i) {
 			for (int j=0; j<nbColumns; ++j) {
@@ -22,7 +22,7 @@ public class Grid implements Observer {
 			}
 		}
 	}
-	
+
 	public ArrayList<Cell> getNeighboringCells(int row, int col) {
 		ArrayList<Cell> c = new ArrayList<>();
 		if (row > 0) {
@@ -45,7 +45,7 @@ public class Grid implements Observer {
 		}
 		return c;
 	}
-	
+
 	public void computeNeightboringBomb(Cell c) {
 		int nbBomb = 0;
 		ArrayList<Cell> cells = this.getNeighboringCells(c.gridx,c.gridy);
@@ -58,8 +58,9 @@ public class Grid implements Observer {
 		// GESTION DECLENCHEMENT EN CHAINE
 		if(nbBomb == 0) {
 			for(Cell oneCell : cells) {
-				if(c != oneCell)
+				if(oneCell.getState() == CellState.UNTRIGGERED) {
 					oneCell.trigger();
+				}
 			}
 		}
 	}
