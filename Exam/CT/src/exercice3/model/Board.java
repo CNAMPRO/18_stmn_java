@@ -45,11 +45,48 @@ public class Board implements Observer {
 		}
 		return c;
 	}
+	
+	public void computeNeighboringBomb()
+	{
+		int bombes = 0;
+		for(int x = 0;x<this.nbColumns;x++)
+		{
+			for(int y = 0;y<this.nbRows;y++)
+			{
+				bombes = 0;
+				ArrayList<Box> c = getNeighboringCells(y,x);
+				for(int voisin = 0; voisin<c.size();voisin++)
+				{
+					Box temp = c.get(voisin);
+					if(temp.isBomb)
+						bombes++;
+				}
+				if(!cells[y][x].isBomb)
+					cells[y][x].nbOfNeiboringBomb = bombes;
+			}
+		}
+		
+	}
+	
+	public void chaine(int x, int y)
+	{
+		ArrayList<Box> c = getNeighboringCells(y,x);
+		for(int voisin = 0; voisin<c.size();voisin++)
+		{
+			Box temp = c.get(voisin);
+			System.out.println(temp.nbOfNeiboringBomb);
+			if(temp.nbOfNeiboringBomb==0 && !temp.isBomb && temp.getState() == BoxState.UNTRIGGERED)
+			{
+				temp.trigger();
+			}
+		}
+		
+	}
 
 	@Override
 	public void update(Observable o, Object arg) {
 		Box c = (Box) o;
-		//TODO: Implement ASAP
+		chaine(c.gridx,c.gridy);
 	}
 
 }

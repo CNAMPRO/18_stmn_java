@@ -25,6 +25,7 @@ public class JBox extends JButton implements Observer {
 
 	private static final Dimension PREFERED_SIZE = new Dimension(24, 24);
 	private static ImageIcon MINE;
+	private static ImageIcon FLAG;
 
 	private final Box model;
 
@@ -40,9 +41,17 @@ public class JBox extends JButton implements Observer {
 				if (model.getState() == BoxState.TRIGGERED)
 					return;
 				if (e.getButton() == MouseEvent.BUTTON1) {
-					model.trigger();
+					if(getIcon()!=FLAG)
+						model.trigger();
 				} else if (e.getButton() == MouseEvent.BUTTON3) {
-					// TODO: Implement ASAP
+					if(getIcon() == FLAG) {
+							setIcon(null);
+							setDisabledIcon(null);
+					}else {
+							setIcon(FLAG);
+							setDisabledIcon(FLAG);
+					}
+
 				}
 			}
 		});
@@ -62,7 +71,7 @@ public class JBox extends JButton implements Observer {
 				setUI(new MetalButtonUI() {
 					@Override
 					protected Color getDisabledTextColor() {
-						return Color.orange;
+						  return Constants.COLOR_MAP.get(model.nbOfNeiboringBomb);
 					}
 				});
 			}
@@ -80,6 +89,8 @@ public class JBox extends JButton implements Observer {
 			MINE = new ImageIcon(
 					buffImg.getScaledInstance(PREFERED_SIZE.width, PREFERED_SIZE.height, Image.SCALE_SMOOTH));
 			buffImg = ImageIO.read(Util.class.getClassLoader().getResource("exercice3/flag.jpg"));
+			FLAG = new ImageIcon(
+					buffImg.getScaledInstance(PREFERED_SIZE.width, PREFERED_SIZE.height, Image.SCALE_SMOOTH));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
