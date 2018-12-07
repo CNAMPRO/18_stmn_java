@@ -1,6 +1,6 @@
 package exercice3.model;
 
-public enum BoxState {
+public enum CellState {
 	UNTRIGGERED,
 	TRIGGERED
 }

@@ -6,23 +6,23 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
-import exercice3.model.Box;
-import exercice3.model.Board;
+import exercice3.model.Cell;
+import exercice3.model.Grid;
 
-public class JBoard extends JFrame {
+public class GridWidget extends JFrame {
 	
-	public JBoard(Board model) {
+	public GridWidget(Grid model) {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(new GridBagLayout());
 		setTitle("MineSweeper");
 		
 		GridBagConstraints c = new GridBagConstraints();
-		JBox cw;
+		CellWidget cw;
 		
 		for (int i=0; i<model.nbRows; ++i) {
 			for (int j=0; j<model.nbColumns; ++j) {
-				cw = new JBox(model.cells[i][j]);
+				cw = new CellWidget(model.cells[i][j]);
 				c.gridx = j;
 				c.gridy = i;		
 				add(cw, c);

@@ -1,17 +1,18 @@
 package exercice2;
 
-public class MaskedImage {
+public class MaskedImage implements IImageBuffer{
 	private int[][] pixels;
-	boolean[][] inclusionMask = new boolean[3][3];
+	boolean[][] inclusionMask;
 	public MaskedImage(int[][] input) {
 		this.pixels = input;
 		this.initMask();
 	}
 	
 	private void initMask() {
+		inclusionMask =  new boolean[this.pixels.length][this.pixels[0].length];
 		for (int i = 0; i< this.pixels.length;i++) {
 			for (int j = 0; j<this.pixels[0].length;j++) {
-				this.inclusionMask[i][j] = true;
+					this.inclusionMask[i][j] = true;
 			}
 		}
 	}
@@ -28,5 +29,34 @@ public class MaskedImage {
 			}
 		}
 		return result;
+	}
+	
+	public void transform(){
+		for (int i = 0; i< this.pixels.length;i++) {
+			for (int j = 0; j<this.pixels[0].length;j++) {
+				if(i>=1&&i<=this.pixels.length-2 && j>=1 && j<=this.pixels[0].length-2) {
+					this.pixels[i][j] = (this.pixels[i-1][j] + this.pixels[i][j-1] + this.pixels[i][j] + this.pixels[i][j+1] + this.pixels[i+1][j])/5;
+				}
+				else {
+					this.pixels[i][j] = this.pixels[i][j];
+				}
+					
+			}
+		}
+	}
+
+	@Override
+	public int[][] getValues() {
+		return getPixels();
+	}
+
+	@Override
+	public int getWidth() {
+		return this.pixels.length;
+	}
+
+	@Override
+	public int getHeight() {
+		return this.pixels[0].length;
 	}
 }

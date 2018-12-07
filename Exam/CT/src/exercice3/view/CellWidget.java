@@ -18,17 +18,17 @@ import javax.swing.border.BevelBorder;
 import javax.swing.plaf.metal.MetalButtonUI;
 
 import exercice2.Util;
-import exercice3.model.Box;
-import exercice3.model.BoxState;
+import exercice3.model.Cell;
+import exercice3.model.CellState;
 
-public class JBox extends JButton implements Observer {
+public class CellWidget extends JButton implements Observer {
 
 	private static final Dimension PREFERED_SIZE = new Dimension(24, 24);
 	private static ImageIcon MINE;
+	private static ImageIcon FLAG;
+	private final Cell model;
 
-	private final Box model;
-
-	public JBox(Box model) {
+	public CellWidget(Cell model) {
 		this.model = model;
 		this.model.addObserver(this);
 
@@ -37,12 +37,18 @@ public class JBox extends JButton implements Observer {
 
 		addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
-				if (model.getState() == BoxState.TRIGGERED)
+				if (model.getState() == CellState.TRIGGERED)
 					return;
 				if (e.getButton() == MouseEvent.BUTTON1) {
 					model.trigger();
 				} else if (e.getButton() == MouseEvent.BUTTON3) {
-					// TODO: Implement ASAP
+					if(getIcon() == FLAG) {
+						setIcon(null);
+						setDisabledIcon(null);
+					}else {
+						setIcon(FLAG);
+						setDisabledIcon(FLAG);
+					}
 				}
 			}
 		});
@@ -62,7 +68,7 @@ public class JBox extends JButton implements Observer {
 				setUI(new MetalButtonUI() {
 					@Override
 					protected Color getDisabledTextColor() {
-						return Color.orange;
+						return Constants.COLOR_MAP.get(model.nbOfNeiboringBomb);
 					}
 				});
 			}
@@ -70,8 +76,8 @@ public class JBox extends JButton implements Observer {
 	}
 
 	@Override
-	public void update(Observable arg0, Object isBomb) {
-		stateChanged((boolean) isBomb);
+	public void update(Observable arg0, Object cell) {
+		stateChanged((boolean) ((Cell)cell).isBomb);
 	}
 
 	static {
@@ -80,6 +86,8 @@ public class JBox extends JButton implements Observer {
 			MINE = new ImageIcon(
 					buffImg.getScaledInstance(PREFERED_SIZE.width, PREFERED_SIZE.height, Image.SCALE_SMOOTH));
 			buffImg = ImageIO.read(Util.class.getClassLoader().getResource("exercice3/flag.jpg"));
+			FLAG = new ImageIcon(
+					buffImg.getScaledInstance(PREFERED_SIZE.width, PREFERED_SIZE.height, Image.SCALE_SMOOTH));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

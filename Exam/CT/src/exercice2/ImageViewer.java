@@ -9,9 +9,9 @@ import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class RasterViewer extends JFrame {
+public class ImageViewer extends JFrame {
 
-	public RasterViewer(BufferedImage img) {
+	public ImageViewer(BufferedImage img) {
 		setLayout(new BorderLayout());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		

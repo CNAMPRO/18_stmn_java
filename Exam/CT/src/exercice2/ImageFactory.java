@@ -13,9 +13,9 @@ import java.awt.image.WritableRaster;
 import java.util.Arrays;
 import java.util.stream.IntStream;
 
-public class RasterFactory {
+public class ImageFactory {
 	
-	public static BufferedImage getImage(IRasterBuffer img) throws Exception {
+	public static BufferedImage getImage(IImageBuffer img) throws Exception {
 		int[][] raster = img.getValues();
 		if (raster.length==0) {
 			throw new Exception("Invalid raster");

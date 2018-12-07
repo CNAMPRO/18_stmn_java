@@ -1,6 +1,6 @@
 package exercice2;
 
-public interface IRasterBuffer {
+public interface IImageBuffer {
 	
 	// Return the pixels of an image
 	public int[][] getValues();
