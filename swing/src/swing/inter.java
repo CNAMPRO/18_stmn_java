@@ -1,0 +1,34 @@
+package swing;
+
+import java.awt.FlowLayout;
+
+import javax.swing.*;
+
+public class inter{
+
+	  private static void createAndShowGUI() {
+	       
+	        JFrame frame = new JFrame("HelloWorldSwing");
+	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	        frame.getContentPane().setLayout(new FlowLayout());   
+	        JLabel nomLabel = new JLabel("Nom");
+	        frame.getContentPane().add(nomLabel);
+	        JTextField nomField = new JTextField(20);
+	        frame.getContentPane().add(nomField);
+	        JLabel prenomLabel = new JLabel("Prénom");
+	        frame.getContentPane().add(prenomLabel);
+	        JTextField prenomField = new JTextField(20);
+	        frame.getContentPane().add(prenomField);
+	        
+	        frame.pack();
+	        frame.setVisible(true);
+	    }
+
+	    public static void main(String[] args) {	        
+	        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+	            public void run() {
+	                createAndShowGUI();
+	            }
+	        });
+	    }
+}
