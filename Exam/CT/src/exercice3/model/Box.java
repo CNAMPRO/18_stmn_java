@@ -4,6 +4,7 @@ import java.util.Observable;
 
 public class Box extends Observable {
 	public boolean isBomb;
+	public boolean isFlag;
 	public int nbOfNeiboringBomb;
 	public int gridx;
 	public int gridy;
@@ -34,5 +35,12 @@ public class Box extends Observable {
 		state = BoxState.TRIGGERED;
 		setChanged();
 		notifyObservers(isBomb);
+	}
+
+	public void flag() {
+		state = BoxState.FLAGED;
+		setChanged();
+		notifyObservers(isFlag);
+		
 	}
 }

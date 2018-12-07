@@ -45,6 +45,48 @@ public class Board implements Observer {
 		}
 		return c;
 	}
+	
+	public int computeNeighboringBomb(int row, int col) {
+		int c = 0;
+		if (row > 0) {
+			if (col > 0)
+				if(cells[row - 1][col - 1].isBomb == true) {
+					c = c + 1;
+				}
+			if(cells[row - 1][col].isBomb == true) {
+				c = c +1;
+			}
+			if (col < nbColumns - 1)
+				if(cells[row - 1][col + 1].isBomb == true) {
+					c = c + 1;
+				}
+		}
+		if (col > 0)
+			if(cells[row][col - 1].isBomb == true) {
+				c = c + 1 ;
+			}
+		if (col < nbColumns - 1)
+			if(cells[row][col + 1].isBomb == true) {
+				c = c + 1;
+			}
+
+		if (row < nbRows - 1) {
+			if (col > 0) {
+				if(cells[row + 1][col - 1].isBomb == true) {
+					c = c + 1;
+				}
+			}
+			if(cells[row + 1][col].isBomb == true) {
+				c = c + 1;
+			}
+			if (col < nbColumns - 1) {
+				if(cells[row + 1][col + 1].isBomb == true) {
+					c = c+1;
+				}
+			}
+		}
+		return c;
+	}
 
 	@Override
 	public void update(Observable o, Object arg) {

@@ -25,6 +25,7 @@ public class JBox extends JButton implements Observer {
 
 	private static final Dimension PREFERED_SIZE = new Dimension(24, 24);
 	private static ImageIcon MINE;
+	private static ImageIcon FLAG;
 
 	private final Box model;
 
@@ -39,39 +40,55 @@ public class JBox extends JButton implements Observer {
 			public void mouseClicked(MouseEvent e) {
 				if (model.getState() == BoxState.TRIGGERED)
 					return;
-				if (e.getButton() == MouseEvent.BUTTON1) {
+				if (model.getState() == BoxState.FLAGED)
+					return;
+				if (e.getButton() == MouseEvent.BUTTON1 && model.isFlag == false) {
 					model.trigger();
 				} else if (e.getButton() == MouseEvent.BUTTON3) {
-					// TODO: Implement ASAP
+					model.flag();
 				}
 			}
 		});
 	}
 
-	private void stateChanged(boolean isBomb) {
+	private void stateChanged(BoxState boxState) {
 		setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
 		setEnabled(false);
 
-		if (isBomb) {
+		if (boxState == BoxState.TRIGGERED) {
+		if (model.isBomb == true) {
 			setIcon(MINE);
 			setDisabledIcon(MINE);
 
-		} else {
-			if (model.nbOfNeiboringBomb > 0) {
-				setText(String.valueOf(model.nbOfNeiboringBomb));
-				setUI(new MetalButtonUI() {
-					@Override
-					protected Color getDisabledTextColor() {
-						return Color.orange;
+		} else if (model.nbOfNeiboringBomb > 0) {
+			setText(String.valueOf(model.nbOfNeiboringBomb));
+			setUI(new MetalButtonUI() {
+				@Override
+				protected Color getDisabledTextColor() {
+					if (model.nbOfNeiboringBomb == 1) {
+						return Color.blue;
+					} else if(model.nbOfNeiboringBomb == 2){
+						return Color.green;
+					} else if(model.nbOfNeiboringBomb == 3){
+						return Color.red;
+					} else if(model.nbOfNeiboringBomb == 4){
+						return Color.magenta;
 					}
-				});
-			}
+					return Color.black;
+					
+				}
+			});
 		}
+		} else if (boxState == BoxState.FLAGED) {
+			setIcon(FLAG);
+			setDisabledIcon(FLAG);
+		} 
+		
 	}
 
 	@Override
-	public void update(Observable arg0, Object isBomb) {
-		stateChanged((boolean) isBomb);
+	public void update(Observable arg0, Object BoxState) {
+		stateChanged(model.getState());
 	}
 
 	static {
@@ -79,10 +96,14 @@ public class JBox extends JButton implements Observer {
 			BufferedImage buffImg = ImageIO.read(Util.class.getClassLoader().getResource("exercice3/mine.png"));
 			MINE = new ImageIcon(
 					buffImg.getScaledInstance(PREFERED_SIZE.width, PREFERED_SIZE.height, Image.SCALE_SMOOTH));
-			buffImg = ImageIO.read(Util.class.getClassLoader().getResource("exercice3/flag.jpg"));
+			BufferedImage FlagImg = ImageIO.read(Util.class.getClassLoader().getResource("exercice3/flag.jpg"));
+			FLAG = new ImageIcon(
+					FlagImg.getScaledInstance(PREFERED_SIZE.width, PREFERED_SIZE.height, Image.SCALE_SMOOTH));
+					
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
+
 
 }
