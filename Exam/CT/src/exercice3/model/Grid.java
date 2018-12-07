@@ -54,8 +54,7 @@ public class Grid implements Observer {
 				nbBomb++;
 			}
 		}
-		c.nbOfNeiboringBomb = nbBomb;
-		// GESTION DECLENCHEMENT EN CHAINE
+		this.cells[c.gridx][c.gridy].nbOfNeiboringBomb = nbBomb;
 		if(nbBomb == 0) {
 			for(Cell oneCell : cells) {
 				if(oneCell.getState() == CellState.UNTRIGGERED) {
