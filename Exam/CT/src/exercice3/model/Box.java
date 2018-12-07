@@ -4,6 +4,7 @@ import java.util.Observable;
 
 public class Box extends Observable {
 	public boolean isBomb;
+	public boolean isFlag = false;
 	public int nbOfNeiboringBomb;
 	public int gridx;
 	public int gridy;
