@@ -1,0 +1,39 @@
+Exercice 1
+
+Question : Si Qi = primitive(Pi), sous quelle forme s'écrit Qi(x)?
+	Qi(x) = sum(n, i) ai * i*x^i-1
+
+Exercie 3
+
+1 - Réalisation (a) reset
+
+Test Validation:
+	1- Lancer l'application 
+	2- Effectuer quelque clics sur la grille pour dévoiler des cases
+	3- Appuyer sur le bouton arborant un smiley
+	4- Vérifier que toute les case son revenu à l'état initiales (caché)
+	(les bombes et les chiffres ne doivent plus être apparent).
+
+2 - Réaliser (b) fin de partie
+
+Test Validation:
+	1- Lancer l'application
+	2- Effectuer quelque clics sur la grille jusqu'à tomber sur une bombe
+	3- Vérifier que l'intégralité de la grille se rével
+
+3 - Réaliser (c) Placement aléatoire *Bonus
+
+Test Validation:
+	1- Lancer l'application
+	2- cocher toute la grille (cela sera plus facile si vous tombez sur une mine fonction (b))
+	3- Vérifier que le nombre de bombes ne soit pas supérieur à la variable b (dans notre cas 8)
+	4- Relancer l'application et réeffectuer l'opération 1, 2, 3 pour vérifier que les mines change bien de position
+
+4 - Ajouter l'aléatoir au reset **Bonus de Bonus
+
+Test Validation
+	1- Lancer l'application
+	2- Cocher toute la grille (cela sera plus facile si vous tombez sur une mine fonction (b))
+	3- Appuyer sur le bouton arborant un smiley
+	4- Réeffectuer l'opération 1, 2
+	5- Vérifier que les mines ont bien changé de position
