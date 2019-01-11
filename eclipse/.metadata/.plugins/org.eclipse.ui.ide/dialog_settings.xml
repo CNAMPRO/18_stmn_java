@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="D:\Papier travail ecole\projet ecole\java\18_stmn_java\Day2\BankAgency"/>
+		<item value="D:\Papier travail ecole\projet ecole\java\18_stmn_java\Day2\FIFO_wo_object"/>
+		<item value="D:\Papier travail ecole\projet ecole\java\18_stmn_java\Day2\FIFO"/>
+		<item value="D:\Papier travail ecole\projet ecole\java\18_stmn_java\Day1\Matrix"/>
+		<item value="D:\Papier travail ecole\projet ecole\java\18_stmn_java\Day1\Matrix\Matrix"/>
+	</list>
+	<section name="ExternalProjectImportWizard">
+		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="D:\Papier travail ecole\projet ecole\java\18_stmn_java\Day2\BankAgency"/>
+			<item value="D:\Papier travail ecole\projet ecole\java\18_stmn_java\Day1\Matrix\Matrix"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
+</section>

@@ -1,0 +1,10 @@
+
+public class VersionObject {
+	int version; 
+	int id;
+	public void add(int id, int version) {
+		this.id=id;
+		this.version=version;
+	}	
+}
+

@@ -1,0 +1,38 @@
+package tata;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.ArrayList;
+
+import org.junit.Rule;
+import org.junit.jupiter.api.Test;
+import org.junit.rules.ExpectedException;
+
+class TestMatrix {
+	 @Rule
+	  public final ExpectedException exception = ExpectedException.none();
+
+	@Test
+	void testMultiplytrue() throws Exception {
+		
+		//double[][] A = {{1.00, 2.00},{3.00, 4.00}};
+		double[][] A = {{1.00, 2.00},{0.00, 3.00}};
+		double[][] B = {{1.00, 2.00, 3.00},{4.00, 5.00, 6.00}};
+		double[][] C = multiplication.scalaire(A, B);
+
+		double[][] R = {{9.00, 12.00, 15.00},{12.00, 15.00, 18.00}};
+		multiplication.afficheM(C);
+		System.out.println("\n");
+		multiplication.afficheM(R);
+		assertArrayEquals(R, C);		
+	}
+	
+	@Test
+	void testMultiply_empty() throws Exception {
+
+		double[][] A = {};
+		double[][] B = {{1.00, 2.00, 3.00},{4.00, 5.00, 6.00}};
+		exception.expect(IndexOutOfBoundsException.class);
+	}
+	
+	
+}

@@ -1,0 +1,6 @@
+INDEX VERSION 1.131+D:\Papier travail ecole\projet ecole\java\18_stmn_java\eclipse\.metadata\.plugins\org.eclipse.jdt.core
+1107981456.index
+4194021789.index
+3132477691.index
+3897020221.index
+1288416770.index
