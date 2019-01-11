@@ -1,0 +1,33 @@
+Exercice 3 : 
+
+1) Pour réaliser la fonction reset le but est, au moment où l'utilisateur appuie sur le smiley,
+de revenir à un état initial où aucune des cases n'ont été activé. 
+
+	Test : 
+- Lancer l'application démineur
+- Appuyer sur n'importe quelle case du jeu pour ne plus être à l'état initial
+- Appuyer sur le smiley 
+- Vérifier que nous sommes bien revenu à l'état initial où aucune case n'a été activés, cad où 
+	toutes les cases sont cachés.
+
+2) Pour réaliser la fonction de fin de partie, on doit tester si à l'appuie sur une des cases du 
+plateau de jeu une bombe apparait. Si lors du test nous avons bien une bombe qui était caché, l'entiereté
+du plateau doit être révélé.
+
+	Test : 
+- Lancer l'application démineur
+- Appuyer sur n'importe quelle case du jeu jusqu'à tomber sur la case contenant une bombe
+- Si un case bombe a été révélé, verifier que toutes les cases ont été révélé et que plus aucune 
+	action sur une autre case n'est possible, excepté l'appuie sur le bouton reset.
+
+3) Pour réaliser la fonction des bombes aléatoires, le but est qu'à chaqu'une des parties les bombes
+soient placé à un endroit différent du plateau de jeu.
+
+	Test :
+- Lancer l'application démineur
+- Appuyer sur n'importe quelle case du jeu jusqu'à tomber sur la case contenant une bombe
+- Si une bombe a été révélé, la partie devrait être terminée.
+- Appuyer alors sur le bouton reset
+- Appuyez encore une fois sur n'importe quelle case du plateau jusqu'à tomber sur un bombe
+- Vérifier que l'emplacement des bombes est différent de celle de la dernière partie
+- Répeter l'oppération quelque fois pour observer que les placement des bombes change à chaque parties

@@ -1,0 +1,5 @@
+INDEX VERSION 1.131+C:\Users\Clément\Documents\CNAM\Java\18_stmn_java\.metadata\.plugins\org.eclipse.jdt.core
+3394193989.index
+927250919.index
+4219279280.index
+2714302097.index

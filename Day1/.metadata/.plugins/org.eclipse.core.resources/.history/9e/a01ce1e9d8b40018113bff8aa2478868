@@ -1,0 +1,37 @@
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.Rule;
+import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
+
+class TestMatrix {
+	@Test
+	void test() {
+		double[][] a = {
+				{1,2},
+				{0,3}
+		};
+		double[][] b = {
+				{1,2,3},
+				{4,5,6}
+		};
+		double[][] c = Multiply.multiplicar(a, b);
+		double[][] expectedC = {{9,12,15},{12,15,18}};
+		
+		assertArrayEquals(c, expectedC);
+		
+		@Test(expected = IndexOutOfBoundsException.class)
+		void testmultiplicar_empty() {
+			double[][] a = {
+			};
+			double[][] b = {
+					{1,2,3},
+					{4,5,6}
+			};
+			
+			excepted.expect(IndexOutOfBoundsException.class);
+			Multiply.multiplicar(a, b);
+		}
+	}
+
+}
